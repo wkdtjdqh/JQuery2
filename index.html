@@ -1,0 +1,112 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>index</title>
+		<link href="css/public.css" rel="stylesheet">
+		<Style>
+			body{
+				min-width:700px;
+			}
+			header, #d1, #cont{
+				margin:5px;
+				padding:10px;
+				box-sizing:border-box;
+			}
+			header{
+				width:100%;
+				height:100px;
+				background:blue;
+				color:white;
+				background-image:linear-gradient(to right, #1a53ff, skyblue);
+			}
+			#d1{
+				width:calc(20% - 2%);
+				height:800px;
+				/* background:skyblue; */
+				float:left;
+				background-image:linear-gradient(white, skyblue, #1a53ff, blue);
+			}
+			#cont{
+				width:calc(80% - 2%);
+				height:800px;
+				background:lightblue;
+				float:right;
+				background-image:linear-gradient(to right, skyblue, white);
+			}
+			/* p{
+				clear:both;
+			}*/
+			.in{
+				width:220px;
+				height:220px;
+				border:1px dotted blue;
+				margin:3px;
+				padding:5px;
+				float:left;
+				background-image:radial-gradient(white, skyblue);
+			}
+			footer{
+				//background:rgba(0%, 0%, 255%, 0.8); /* rgba를 통해서 선명도를 조절할 수 있다. */
+				background-image:linear-gradient(to right, skyblue, #1a53ff);
+				height:100px;
+				padding:10px;
+				clear:both;
+			}
+			header p{
+				text-align:center;
+			}
+		</Style>
+	</head>
+	
+	<body>
+		<header>
+			<p>
+				<b>안녕하세요. 대덕인재개발원 장성보입니다.</b>
+				<em>203호에 오신 것을 환영합니다.</em>
+			</p>
+		</header>
+		<div id="d1">
+			<h1>JQuery</h1>
+		</div>
+		<div id="cont">
+			<div class="in">
+				<h3>0909</h3>
+				<ul>
+					<li><a href="0909/test1.html">test1</a></li>
+				</ul>
+			</div>
+			<div class="in">
+				<h3>0910</h3>
+				<ul>
+					<li><a href="0910/click_hide.html">click hide</a></li>
+					<li><a href="0910/context.html">context</a></li>
+					<li><a href="0910/create_new_tag.html">create new tag</a></li>
+					<li><a href="0910/first.html">first</a></li>
+					<li><a href="0910/html_text.html">html text</a></li>
+				</ul>
+			</div>
+			<div class="in">
+				<h3>0911</h3>
+				<ul>
+					<li><a href="0911/선택자1.html">선택자1</a></li>
+					<li><a href="0911/선택자2.html">선택자2</a></li>
+					<li><a href="0911/선택자3.html">선택자3</a></li>
+					<li><a href="0911/선택자4.html">선택자4</a></li>
+				</ul>
+			</div>
+			<div class="in">
+				<h3>0914</h3>
+				<ul>
+					<li><a href="0914/기본필터.html">기본필터</a></li>
+					<li><a href="0914/내용필터.html">내용필터</a></li>
+					<li><a href="0914/자식필터.html">자식필터</a></li>
+					<li><a href="0914/상태필터.html">상태필터</a></li>
+				</ul>
+			</div>
+		</div>
+		<footer>
+			
+		</footer>
+	</body>
+</html>

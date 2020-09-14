@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#but1').on('click', function(){
+					$('li:first').css('background','yellow');
+					$('li:first-child').css('border','4px solid red');
+					$('li:last').css({'background':'black', 'color':'white'});
+					$('li:last-child').css('border','4px solid blue');
+				})
+				$('#but2').on('click', function(){
+					$('#tab1 td:nth-child(1)').css({'background':'blue', 'color':'white'})
+					$('#tab1 td:nth-child(2)').css({'background':'red', 'color':'white'})
+					$('#tab1 td:nth-child(3)').css({'background':'violet', 'color':'white'})
+					
+					$('#tab2 tr:nth-child(1)').css({'background':'black', 'color':'white'})
+					$('#tab2 tr:gt(0) td:nth-child(1)').css({'background':'blue', 'color':'white'})
+					$('#tab2 tr:gt(0) td:nth-child(2)').css({'background':'red', 'color':'white'})
+					$('#tab2 tr:gt(0) td:nth-child(3)').css({'background':'violet', 'color':'white'})
+				})
+			})
+		</script>
+		<style type="text/css">
+			td{width:200px;height:40px;text-align:center;padding:5px;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h3>자식필터</h3>
+			:first, :first-child, :last, :last-child<br>
+			<input type="button" value="확인" id="but1">
+			<div id="result1">
+				<h3>여자에게 인기있는 남자들</h3>
+				<ol>
+					<li>능력있는 남자</li>
+					<li>돈 많은 남자</li>
+					<li>잘생긴 남자</li>
+					<li>프로그래머</li>
+				</ol>
+				<br>
+				<h3>남자에게 인기있는 여자들</h3>
+				<ol>
+					<li>예쁜 여자</li>
+					<li>귀여운 여자</li>
+					<li>섹시한 여자</li>
+				</ol>
+			</div>
+		</div>
+		<div class="box">
+			<h3>자식필터</h3>
+			:nth-child(index/even/odd/equation)<br><br>
+			<input type="button" value="확인" id="but2">
+			<div id="result2">
+				<table id="tab1">
+					<tr><td>이름</td><td>주소</td><td>전화번호</td></tr>
+					<tr><td>홍길동</td><td>대전</td><td>010-222-333</td></tr>
+					<tr><td>홍길서</td><td>대구</td><td>010-222-444</td></tr>
+					<tr><td>홍길남</td><td>대천</td><td>010-222-555</td></tr>
+					<tr><td>홍길북</td><td>서울</td><td>010-222-666</td></tr>
+				</table><br>
+				<table id="tab2">
+					<tr><td>이름</td><td>주소</td><td>전화번호</td></tr>
+					<tr><td>홍길동</td><td>대전</td><td>010-222-333</td></tr>
+					<tr><td>홍길서</td><td>대구</td><td>010-222-444</td></tr>
+					<tr><td>홍길남</td><td>대천</td><td>010-222-555</td></tr>
+					<tr><td>홍길북</td><td>서울</td><td>010-222-666</td></tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

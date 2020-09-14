@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#but1').on('click', function(){
+// 					$('li:first').css('background', 'yellow');
+// 					$('li:last').css('background', 'yellow');
+					$('li:first, li:last').css('background', 'yellow');
+					$('li:lt(4)').css({'font-weight':'bold', 'font-size':'1.5em'});
+					$('li:eq(5)').css('background', 'red');
+				})
+				$('#but2').on('click', function(){
+					$('tr:even').css({'background':'blue', 'color':'white'});
+					$('tr:odd').css({'background':'black', 'color':'white'});
+					$('tr:first').css('background', 'violet');
+				})
+			})
+		</script>
+		<style type="text/css">
+			td{width:300px;height:40px;padding:10px;text-align:center;}
+		</style>
+	</head>
+	<body>
+		<div class="box box1">
+			<h3>기본필터</h3>
+			:first, :last, :lt(4), :eq(5)<br><br>
+			<input type="button" value="확인" id="but1">
+			<div id="result1">
+				<ul>
+					<li>one</li>
+					<li>two</li>
+					<li>three</li>
+					<li>four</li>
+					<li>five</li>
+					<li>six</li>
+					<li>seven</li>
+					<li>eight</li>
+					<li>nine</li>
+				</ul>
+			</div>
+		</div>
+		<div class="box box2">
+			<h3>기본필터</h3>
+			:even, :odd<br><br>
+			<input type="button" value="확인" id="but2">
+			<div id="result2">
+				<table border="1">
+					<tr><td>one</td><td>62만원</td></tr>
+					<tr><td>two</td><td>45만원</td></tr>
+					<tr><td>three</td><td>33만원</td></tr>
+					<tr><td>four</td><td>72만원</td></tr>
+					<tr><td>five</td><td>77만원</td></tr>
+					<tr><td>six</td><td>54만원</td></tr>
+					<tr><td>seven</td><td>61만원</td></tr>
+					<tr><td>eight</td><td>52만원</td></tr>
+					<tr><td>nine</td><td>88만원</td></tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				res="";
+				$('input[value=html]').on('click', function(){
+// 					res += $('p').html() + "\n";
+// 					alert(res);
+					
+					// 반복문을 실행 - p태그를 선택해서 개수만큼 반복적으로 실행한다.
+// 					$.each($'p'), function(i){}
+					
+					$('p').each(function(i){
+						res += i + "번째 요소 : " + $(this).html() + "\n";
+					})
+					alert(res)
+				})
+				$('input[value=text]').on('click', function(){
+					res="";
+					res += $('p').text();
+					alert(res);
+				})
+			})
+		</script>
+		<style type="text/css">
+			span{background:blue};
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h3>내용가져오기</h3>
+			p태그의 내용을 가져온다.<br>
+			html() : p태그 내부의 내용과 태그를 포함, p태그가 여러개일 경우 첫번째만 가져온다.<br> 
+			text() : p태그 내부의 내용만 포함, p태그가 여러개일 경우 모든 p태그를 가져온다.<br>
+			
+			<p>1<span>홍길동</span></p>
+		    <p>2<span>개나리</span></p>
+		    <p>3<span>진달래</span></p>
+			<input type="button" value="html">
+			<input type="button" value="text">
+			<div id="result1"></div>
+		</div>
+	</body>
+</html>
