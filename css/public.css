@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+
+/* 
+	width
+	height
+	background-color
+	color
+	font-size
+	font-weight
+	text-algin
+	margin
+	padding
+	border
+		border-radius:5px; 모서리를 5px만큼 깎는다.
+		border-radius:5px 10px; 11시방향, 5시방향이 5px. 1시방향과 7시방향이 10px
+		border : 2px solid red
+		   border-width, border-style, border-color를 한번에 지정, border-style은 필수적으로 들어가야 한다.
+		
+*/
+	
+.box{
+	background-color:#fef1f3;
+	font-size:1.5em; /* 1.5배 */
+	padding:50px;
+	margin:5px;
+	border-top:4px double blue;
+	border-bottom:4px double blue;
+}
+.box pre{
+	font-size:1.2em;
+	background-color:#4284ed;
+	color:white;
+}
+.box div{
+	border:1px dotted blue;
+	padding:10px;
+	margin:5px;
+}
+.box input[type=button]{
+	background-color:blue;
+	color:white;
+	padding:5px 10px;
+	width:150px;
+	height:50px;
+	border-radius:50px;
+	margin:10px;
+	font-size:1.2em;
+}
+.box img{
+	width:300px;
+}

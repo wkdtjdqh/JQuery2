@@ -30,7 +30,7 @@
 					res = "이름 : " + $('#nameTxt').val() + "\n";
 					res += "성별 : " + $(':radio:checked').val() + "\n";
 					res += "취미 : ";
-					$(':checkbox:checked').each(function(i, v){
+					$(':checkbox:checked').each(function(i, v){	// v = :checkbox:checked에 해당하는 값
 						res += $(this/*v*/).val() + " ";
 					}) 
 					

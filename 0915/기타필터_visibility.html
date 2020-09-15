@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('input[value=보이기]').hide();
+				
+				$('h4').on('click', function(){
+					$(this).hide();
+					if($('h4:visible').length == 0){
+						$('input[value=보이기]').show();
+					}
+				})
+				$('input[value=보이기]').on('click', function(){
+					$('h4').show();
+					$(this).hide();
+				})
+				
+				$('input[value=hidden]').on('click', function(){
+					$('#result2').html($('.box2 p:hidden').text());	// text는 모든 p의 값을 가져오고, html은 첫 p의 값만 가져온다.
+				})
+				$('input[value=visible]').on('click', function(){
+// 					$('#result3').html($('.box2 p:visible').text());
+					res = "";
+					$('.box2 p:visible').each(function(){
+						res += $(this).html() + "<br>";
+					});
+					$('#result3').html(res)
+				})
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<h3>기타필터</h3>
+			:visible : 보여지는 상태<br>
+			:hidden : 감춰진 상태<br>
+			<input type="button" value="보이기">
+			<div id="result1">
+				<h4>클릭하면 사라집니다.</h4>
+				<h4>클릭하면 사라집니다.</h4>
+				<h4>클릭하면 사라집니다.</h4>
+				<h4>클릭하면 사라집니다.</h4>
+			</div>
+		</div>
+		<div class="box box2">
+			<h3>기타필터</h3>
+			:visible : 보여지는 상태<br>
+			:hidden  : 감춰진 상태<br>
+			<p> 보이는 문단</p>
+			<p style="visibility:hidden;">숨겨진 문단</p>
+			<p style="display:none;"> 자리를 차지 하지 못한 문단 </p>
+			<p style="opacity:0;"> 투명한 문단</p>
+			<input type="button" value="hidden">
+			<input type="button" value="visible">
+			<div id="result2"></div>
+			<div id="result3"></div>
+		</div>
+	</body>
+</html>
