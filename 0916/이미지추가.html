@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('.box1 p').on('click', function(){
+					a = $(this).attr('title');
+					t = $(this).text();
+// 					vimg = $('<img src="../images/' + a + '.jpg" width="100px"');
+					vimg = $('<img>', {
+						'src' : '../images/' + a + '.jpg',
+						'width' : '100px'
+					});
+// 					$(vimg).appendTo(this)
+					$(this).append(vimg)
+				})
+				
+				$('.box2 p').on('click',function(){
+					a = $(this).attr('title');
+					t = $(this).text();
+					vimg = $('<img>', {
+						'src' : '../images/' + a + '.jpg',
+						'width' : '100px'
+					});
+// 					$(this).before(vimg);
+					$(vimg).insertBefore(this);
+				})
+				
+				$('#ok').on('click', function(){
+					$('#ok').hide();
+					$('#end').show();
+					interval = setInterval(function(){
+						$('.box3 img:first').appendTo('.box3');
+					}, 100);
+				})
+				$('#end').on('click', function(){
+					$('#ok').show();
+					$('#end').hide();
+					clearInterval(interval);
+				})
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box box1">
+			<h3>이미지추가</h3>
+			$('selector').append(content), $(content).appendTo(selector)<br>
+			prepend(content), prependTo(selector)<br>
+			after(content), insertAfter<br>
+			before(content), insertBefore<br>
+			<br>
+			<p title="cat1">고양이1</p>
+			<p title="cat2">고양이2</p>
+			<p title="cat3">고양이3</p>
+			<p title="cat4">고양이4</p>
+		</div>
+		<div class="box box2">
+			<h3>이미지추가</h3>
+			$('selector').append(content), $(content).appendTo(selector)<br>
+			prepend(content), prependTo(selector)<br>
+			after(content), insertAfter<br>
+			before(content), insertBefore<br>
+			<br>
+			<p title="cat1">고양이1</p>
+			<p title="cat2">고양이2</p>
+			<p title="cat3">고양이3</p>
+			<p title="cat4">고양이4</p>
+		</div>
+		<div class="box box3">
+			<h3>이미지추가</h3>
+			기존에 document에 미리 생성되어 있는 요소에 대해서 추가하면 기존의 요소가 이동이 된다.<br>
+			<br>
+			<input type="button" id="ok" value="확인">
+			<input type="button" id="end" value="종료" hidden="true"><br><br>
+			<img src="../images/cat5.jpg">
+			<img src="../images/cat4.jpg">
+			<img src="../images/cat3.jpg">
+			<img src="../images/cat2.jpg">
+			<img src="../images/cat1.jpg">
+		</div>
+	</body>
+</html>

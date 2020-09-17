@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#get').click(function(){
+					// 입력한 값을 가져온다.
+					vn = $('#name').val();
+					vi = $('#id').val();
+					$('#form1').attr('action', 'get.jsp?name=' + vn + '&id=' + vi);
+					$('#form1').attr('method', 'get');
+					$('#form1').submit();
+				})
+				$('#post').click(function(){
+					// 입력한 값을 가져온다.
+					$('#form2').attr('action', 'post.jsp');
+					$('#form2').attr('method', 'post');
+					$('#form2').submit();
+				})
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<h3>기존전송</h3>
+			<form id="form1">
+			이름<input type="text" name="name" id="name"><br>
+			ID<input type="text" name="id" id="id"><br>
+			<input type="button" value="get전송" id="get"><br>
+			</form>			
+			<br>
+			<form id="form2">
+			이름<input type="text" name="name2" id="name2"><br>
+			ID<input type="text" name="id2" id="id2"><br>
+			<input type="button" value="post전송" id="post"><br>
+			</form>			
+		</div>
+		<div class="box">
+			<h3>ajax전송</h3>
+			<form id="form3">
+			이름<input type="text" name="name3" id="name3"><br>
+			ID<input type="text" name="id3" id="id3"><br>
+			<input type="button" value="get전송" id="ajget"><br>
+			</form>			
+			<br>
+			<form id="form4">
+			이름<input type="text" name="name4" id="name4"><br>
+			ID<input type="text" name="id4" id="id4"><br>
+			<input type="button" value="post전송" id="ajpost"><br>
+			</form>			
+		</div>
+	</body>
+</html>
