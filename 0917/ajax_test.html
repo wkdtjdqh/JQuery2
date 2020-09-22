@@ -22,12 +22,53 @@
 					$('#form2').submit();
 				})
 				
+				xhr = new XMLHttpRequest();
+				$('#ajget').click(function(){
+					// 입력데이터 가져오기
+					vn = $('#name3').val();
+					vi = $('#id3').val();
+					
+					// 요청
+					xhr.open('get', 'ajget.jsp?name='+vn+'&id='+vi, true);	// true : 비동기
+					xhr.send();
+					
+					// 응답
+					xhr.onreadystatechange = function(){	// window.onload와 비슷하다.
+						if(this.readyState == 4 && this.status == 200){
+							res = this.responseText;
+							$('#result3').html(res).css('background', 'skyblue');
+						}
+					}
+				})
+				$('#ajpost').click(function(){
+					// 입력데이터가져오기
+					vn = $('#name4').val();
+					vi = $('#id4').val();
+					
+					data = "name="+vn+"&id="+vi;
+					
+					// 응답
+					xhr.onreadystatechange = function(){
+						if(this.readyState == 4 && this.status == 200){
+							res = this.responseText;
+							$('#result4').html(res).css('background', 'skyblue');
+						}
+					}
+					
+					// 요청
+					xhr.open('post', 'ajpost.jsp', true);
+					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					xhr.send(data);
+				})
+				
+				
 			})
 		</script>
 	</head>
 	<body>
 		<div class="box">
 			<h3>기존전송</h3>
+			응답페이지를 전체를 새로운 페이지로 로드한다.<br>
 			<form id="form1">
 			이름<input type="text" name="name" id="name"><br>
 			ID<input type="text" name="id" id="id"><br>
@@ -42,17 +83,21 @@
 		</div>
 		<div class="box">
 			<h3>ajax전송</h3>
+			응답데이터를 현재 페이지의 영역에 출력한다.<br>
+			응답페이지를 전체 페이지로 로드하지 않는다.<br>
 			<form id="form3">
 			이름<input type="text" name="name3" id="name3"><br>
 			ID<input type="text" name="id3" id="id3"><br>
 			<input type="button" value="get전송" id="ajget"><br>
-			</form>			
+			</form>
+			<div id="result3"></div>
 			<br>
 			<form id="form4">
 			이름<input type="text" name="name4" id="name4"><br>
 			ID<input type="text" name="id4" id="id4"><br>
 			<input type="button" value="post전송" id="ajpost"><br>
 			</form>			
+			<div id="result4"></div>
 		</div>
 	</body>
 </html>

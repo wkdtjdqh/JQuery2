@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$.getJSON(
+					"/jqpro/0921/lprod.jsp",
+					function(data){
+						code = "";
+						$.each(data, function(){
+							code += `<option value=${this.gu}>${this.nm}</option>`
+						})
+						$('#lprod').html(code);
+						$('#lprod').trigger('change');
+					}
+				)
+				
+				//lprod항목을 선택하면 prod항목을 출력
+				$('#lprod').on('change', function(){
+					$.post(
+						"prod.jsp",
+						{"gu" : $(this).val()},
+						function(data){
+							if(data.sw == "ok"){
+								code = "";
+								$.each(data.datas,function(i){
+									code += `<option value=${data.datas[i].id}>${data.datas[i].name}</option>`
+								})
+							}else{
+								code = `<option value=0>데이터 없음</option>`
+							}
+							$('#prod').html(code);
+							$('#prod').trigger('change');
+						},
+						'json'
+					)
+				})
+				
+				//prod항목을 선택하면 상세보기
+				$('#prod').change(function(){
+					val = $(this).val().trim();
+					if(val == 0){
+						$('#detail').empty();
+// 						$('<img src="../images/cat4.jpg" width="150px">');
+						$('<img>', {
+							'src' : '../images/cat4.jpg',
+							'width' : '150px'
+						}).appendTo('#detail')
+						return false;
+					}else{
+						$.post(
+							"prodDetail.jsp",
+							{"id" : val},
+							function(data){
+								code = `<table border="1">`;
+								code += `<tr id="t"><td>항목</td><td>내용</td></tr>`;
+								code += `<tr><td>PROD_ID</td><td>${data.id}</td></tr>`
+								code += `<tr><td>PROD_NAME</td><td>${data.name}</td></tr>`
+								code += `<tr><td>PROD_LGU</td><td>${data.lgu}</td></tr>`
+								code += `<tr><td>PROD_BUYER</td><td>${data.buyer}</td></tr>`
+								code += `<tr><td>PROD_COST</td><td>${data.cost}</td></tr>`
+								code += `<tr><td>PROD_PRICE</td><td>${data.price}</td></tr>`
+								code += `<tr><td>PROD_SALE</td><td>${data.sale}</td></tr>`
+								code += `<tr><td>PROD_OUTLINE</td><td>${data.outline}</td></tr>`
+								code += `<tr><td>PROD_DETAIL</td><td>${data.detail}</td></tr></table>`
+
+								$('#detail').html(code);
+							},
+							'json'
+						)
+					}
+				})
+			})
+		</script>
+		<style type="text/css">
+			#t{text-align:center};
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h3>lprod_prod</h3>
+			1. lprod테이블의 lprod_gu, lprod_nm을 조회<br>
+			2. lprod의 조회결과 중 하나를 선택하면 prod테이블의 prod_id, prod_name을 조회<br>
+			   prod테이블 조회시 조건은 prod_lgu = lprod_gu이다.<br>
+			3. prod의 조회결과 중 하나를 선택하면 선택항목의 상세보기를 조회한다.<br>
+			     조회시 검색조건은 prod_id = 선택한 항목의 id<br>
+			<br>
+			<div id="result1">
+				<select id="lprod"></select> <select id="prod"></select>
+				<div id="detail"></div>
+<!-- 				<table border="1" style="border-collapse:collapse"> -->
+<!-- 					<tr><td>항목</td><td>내용</td></tr> -->
+<!-- 				</table> -->
+			</div>
+		</div>
+	</body>
+</html>
