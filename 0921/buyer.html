@@ -51,7 +51,7 @@
 					// ajax 단축메뉴 post
 					$.post(
 						'buyerDetail.jsp', 
-						{"id" : $(this) .attr('id')},
+						{"id" : $(this).attr('id')},
 						function(data){
 							code = `<table><tr><td>BUYER_ID</td><td>${data.id}</td></tr>`
 							code += `<td>BUYER_NAME</td><td>${data.name}</td></tr>`
